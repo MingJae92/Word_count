@@ -244,7 +244,7 @@
                 "logged_in_status": "Logged out"
             }
         };
-       
+
 
         // Is mobile
         mobileCheck = function () {
@@ -258,33 +258,32 @@
         if (window.location.href === DataLayer.journey_data.canonical_url) {
             DataLayer.article_data.original_article = true;
         }
-
-        if (window.location.href  != DataLayer.journey_data.canonical_url) {
+        else {
             DataLayer.article_data.original_article = false;
         }
         //Function to count words
         function countWords() {
-        //Document is selecting p tags that are not specified with a class
+            //Document is selecting p tags that are not specified with a class
             const paragraphs = document.querySelectorAll('p:not([class])');
             let wordCount = 0;
 
             paragraphs.forEach(paragraph => {
-        //Words are being filtered using Reg expressions
+                //Words are being filtered using Reg expressions
                 const words = paragraph.innerText.trim().split(/\s+/);
                 wordCount += words.length;
             });
             // Logging the total word count
-            console.log('Word count:', wordCount); 
+            console.log('Word count:', wordCount);
             return wordCount;
         }
 
-         // Logging the initial value
-        console.log('Initial word count:', DataLayer.article_data.word_count); 
+        // Logging the initial value
+        console.log('Initial word count:', DataLayer.article_data.word_count);
 
         DataLayer.article_data.word_count = countWords();
 
         // Logging the updated value
-        console.log('Updated word count:', DataLayer.article_data.word_count); 
+        console.log('Updated word count:', DataLayer.article_data.word_count);
 
     </script>
 </body>
@@ -316,5 +315,8 @@
     3.if (window.location.href === DataLayer.journey_data.canonical_url) {
             DataLayer.article_data.original_article = true;
         }
--->
 
+    if (window.location.href  != DataLayer.journey_data.canonical_url) {
+            DataLayer.article_data.original_article = false;
+        }
+-->
